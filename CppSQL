@@ -1,0 +1,208 @@
+#include<iostream>
+#include<fstream>
+
+using namespace std;
+
+#define mytyp <int,string>
+
+void d(void f(int e)) {
+    f(0);
+}
+
+
+template<typename X, typename Y>
+void h(void** data, X g, Y t) {
+    data[0] = new X(g);
+    data[1] = new Y(t);
+
+    //cout << g << endl<< t;
+}
+
+
+template<typename X, typename ...Y>
+void h(void** data, X g, Y... t) {
+    //cout << g << endl;
+
+    data[0] = new X(g);
+    h(data + 1, t...);
+}
+namespace Typ {
+    template<typename T>
+    void GetCall(T Call, bool flg) {
+        cout << Call;
+        if (flg)
+            cout << endl; 
+        else 
+            cout << ' ';
+        return;
+    }
+
+    template<typename... T>
+    struct Type;
+
+    template<typename T>
+    struct Type<T> {
+        Type(void* p,void f(void*)) {
+            f<T>(p);
+        }
+    };
+    template<typename I,typename... T>
+    struct Type<I,T...> {
+        Type(void* p,void f(void*)) {
+            f<I>(p);
+            Type<T...>(p,f);
+        }
+    };
+
+    template<typename... T>
+    struct GetTyp;
+
+    template<typename T>
+    struct GetTyp<T> {
+        GetTyp(void** data) {
+            GetCall<T>((*((T*)data[0])), 1);
+        }
+    };
+
+    template<typename T, typename... I>
+    struct GetTyp<T, I...> {
+        GetTyp(void** data)
+        {
+            GetCall<T>((*((T*)data[0])), 0);
+            GetTyp<I...> n(data + 1);
+        }
+    };
+
+    template<typename... T>
+    struct SetTyp;
+
+    template<typename T>
+    struct SetTyp<T> {
+        SetTyp(void** data, istream& fin) {
+            data[0] = new T;
+            fin >> *((T*)data[0]);
+        }
+    };
+
+    template<typename T, typename... I>
+    struct SetTyp<T, I...> {
+        SetTyp(void** data, istream& fin) {
+            data[0] = new T;
+            fin >> *((T*)data[0]);
+            SetTyp<I...>(data + 1, fin);
+        }
+    };
+}
+//
+using namespace Typ;
+
+
+
+//
+template<typename ...T>
+class table {
+public:
+
+    void** data;
+    istream* myin;
+
+    table() {}
+
+    table(T... t)
+    {
+        data = new void* [sizeof...(T)];
+        h(data, t...);
+    }
+
+
+
+    friend istream& operator >>(istream& fin, table<T...>& tab) {
+        tab.data = new void* [sizeof...(T)];
+        SetTyp<T...> test(tab.data, fin);
+        return fin;
+    }
+
+};
+
+template<typename T>
+void Siz(void* p) {
+    *((size_t*)p) += (sizeof(T) + 1);
+}
+
+template<typename ...T>
+class base {
+public:
+    ofstream wfio;
+    ifstream rfio;
+    streambuf* ocin;
+    streambuf* ocout;
+    char* srcc;
+    bool conso;
+
+    base(const char* src, bool con = 0, basic_ios<ifstream>::openmode inmode = ios::in, basic_ios<ofstream>::openmode outmode = ios::out) {
+        srcc = src;
+        if (con) {
+            puts("Open in file:");
+            puts(src);
+            puts("from: ");
+            cout << this << endl;
+
+            rfio.open(src, inmode);
+            wfio.open(src, outmode);
+
+            ocin = cin.rdbuf();
+            ocout = cout.rdbuf();
+
+            cin.rdbuf(rfio.rdbuf());
+            cout.rdbuf(wfio.rdbuf());
+
+        }
+        else {
+            puts("Debug:\nfrom: ");
+            cout << this << endl;
+        }
+        conso = con;
+    }
+    ~base() {
+        if (conso) {
+            wfio.close();
+            rfio.close();
+            cin.rdbuf(ocin);
+            cout.rdbuf(ocout);
+        }
+        cout << "DataBase " << this << " is close!\n";
+    }
+
+    void addtab(table<T...> tab) {
+        GetTyp<T...>(tab.data);
+    }
+
+    template<typename r>
+    FILE* findtab(r mb) {
+        size_t* TypS = new size_t(0);
+        Type<T...>(TypS, Siz);
+        FILE* io=fopen(srcc, "r");
+        for(size_t s = 0;;s++){
+            for()
+            fseek(io, TypS, 1);
+        }
+    }
+};
+
+int main(int t)
+{
+    
+    base<char, int> my("D:\\CppSQL.txt", 0, ios::in, ios::out | ios::app);
+    my.addtab(table<char, int>('A', 7));
+
+    int a;
+    int b;
+    scanf_s("%d%d", &a, &b);
+    my.addtab(table<char, int>(a, b));
+    table<char, int> y;
+    //y.in(cin);
+    cin >> y;
+    my.addtab(y);
+
+    return 0;
+}
