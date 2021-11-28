@@ -4,6 +4,7 @@
 using namespace std;
 
 #define mytyp <int,string>
+#define ull size_t
 
 void d(void f(int e)) {
     f(0);
@@ -38,22 +39,33 @@ namespace Typ {
     }
 
     template<typename... T>
-    struct Type;
-
-    template<typename T>
-    struct Type<T> {
-        Type(void* p,void f(void*)) {
-            f<T>(p);
+    struct TypSiz;
+    template <typename T>
+    struct TypSiz <T>{
+        ull size;
+        TypSiz(void f(ull,void**&),void**& c) {
+            size = sizeof(T);
+            f(size,c);
+        }
+        TypSiz() {
+            size = sizeof(T);
         }
     };
-    template<typename I,typename... T>
-    struct Type<I,T...> {
-        Type(void* p,void f(void*)) {
-            f<I>(p);
-            Type<T...>(p,f);
+    template <typename T,typename... I>
+    struct TypSiz<T,I...> {
+        ull size;
+        TypSiz(void f(ull,void**&),void**& c) {
+            size = sizeof(T);
+            f(size,c);
+            TypSiz<I...> n(f,c);
+            size += n.size;
+        }
+        TypSiz() {
+            size = sizeof(T);
+            TypSiz<I...> n;
+            size += n.size;
         }
     };
-
     template<typename... T>
     struct GetTyp;
 
@@ -105,15 +117,22 @@ public:
 
     void** data;
     istream* myin;
-
+    ull SIZE;
     table() {}
 
     table(T... t)
     {
         data = new void* [sizeof...(T)];
         h(data, t...);
+        TypSiz<T...> n;
+        SIZE = n.size;
     }
 
+
+    template<typename IdTyp>
+    IdTyp GetId() {
+        return (*((IdTyp*)data[0]));
+    }
 
 
     friend istream& operator >>(istream& fin, table<T...>& tab) {
@@ -124,9 +143,12 @@ public:
 
 };
 
-template<typename T>
-void Siz(void* p) {
-    *((size_t*)p) += (sizeof(T) + 1);
+#include<vector>
+
+void BaseCall(ull s,void**& c) {
+    
+    cout << string((*((char**)c))) << ' ' << s << ' ';
+    ((char**&)c)++;
 }
 
 template<typename ...T>
@@ -139,8 +161,8 @@ public:
     char* srcc;
     bool conso;
 
-    base(const char* src, bool con = 0, basic_ios<ifstream>::openmode inmode = ios::in, basic_ios<ofstream>::openmode outmode = ios::out) {
-        srcc = src;
+    base(const char* src, const char**& namelist,bool con = 0, basic_ios<ifstream>::openmode inmode = ios::in, basic_ios<ofstream>::openmode outmode = ios::out) {
+        srcc = (char*)src;
         if (con) {
             puts("Open in file:");
             puts(src);
@@ -162,6 +184,8 @@ public:
             cout << this << endl;
         }
         conso = con;
+        TypSiz<T...> t(BaseCall,(void**&)namelist);
+        cout << endl;
     }
     ~base() {
         if (conso) {
@@ -178,31 +202,37 @@ public:
     }
 
     template<typename r>
-    FILE* findtab(r mb) {
-        size_t* TypS = new size_t(0);
-        Type<T...>(TypS, Siz);
-        FILE* io=fopen(srcc, "r");
-        for(size_t s = 0;;s++){
-            for()
-            fseek(io, TypS, 1);
+    size_t findtab(r mb) {
+        cin.seekg(0L, ios::beg);
+        char* red = new char[100];
+        while (cin.get() != '\n');
+        table<T...> tab;
+        for ( ull re = 1; !(cin.eof()); re++) {
+            cin >> tab;
+            r id = tab.GetId<r>();
+            printf("RE:%llu Id:%c\n", re, id);
+            if (id == mb) {
+                return re;
+            }
+            
         }
+        return 0;
     }
+
+    
+
 };
 
 int main(int t)
 {
-    
-    base<char, int> my("D:\\CppSQL.txt", 0, ios::in, ios::out | ios::app);
+    const char** name = new const char*[2];
+    name[0] = "Num";
+    name[1] = "Nam";
+    base<char, int> my("D:\\CppSQL.txt",name, 1, ios::in, ios::out);
     my.addtab(table<char, int>('A', 7));
-
-    int a;
-    int b;
-    scanf_s("%d%d", &a, &b);
-    my.addtab(table<char, int>(a, b));
-    table<char, int> y;
-    //y.in(cin);
-    cin >> y;
-    my.addtab(y);
-
+    my.addtab(table<char, int>('B', 6));
+    getchar();
+    ull s=my.findtab('B');
+    cout << s;
     return 0;
 }
