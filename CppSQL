@@ -1,3 +1,4 @@
+```cpp
 #include<iostream>
 #include<fstream>
 
@@ -236,3 +237,4 @@ int main(int t)
     cout << s;
     return 0;
 }
+```
