@@ -21,16 +21,105 @@ CppSQL,use Cpp call SQL
 <details>
 
 <summary>
-    
 # That is the namespace Typ:
-    
 </summary>
-    
-
 <pre><code>
+```cpp
+template<typename X, typename Y>
+void h(void** data, X g, Y t) {
+    data[0] = new X(g);
+    data[1] = new Y(t);
 
-# That is the namespace Typ:
+    //cout << g << endl<< t;
+}
 
+
+template<typename X, typename ...Y>
+void h(void** data, X g, Y... t) {
+    //cout << g << endl;
+
+    data[0] = new X(g);
+    h(data + 1, t...);
+}
+namespace Typ {
+    template<typename T>
+    void GetCall(T Call, bool flg) {
+        cout << Call;
+        if (flg)
+            cout << endl; 
+        else 
+            cout << ' ';
+        return;
+    }
+
+    template<typename... T>
+    struct TypSiz;
+    template <typename T>
+    struct TypSiz <T>{
+        ull size;
+        TypSiz(void f(ull,void**&),void**& c) {
+            size = sizeof(T);
+            f(size,c);
+        }
+        TypSiz() {
+            size = sizeof(T);
+        }
+    };
+    template <typename T,typename... I>
+    struct TypSiz<T,I...> {
+        ull size;
+        TypSiz(void f(ull,void**&),void**& c) {
+            size = sizeof(T);
+            f(size,c);
+            TypSiz<I...> n(f,c);
+            size += n.size;
+        }
+        TypSiz() {
+            size = sizeof(T);
+            TypSiz<I...> n;
+            size += n.size;
+        }
+    };
+    template<typename... T>
+    struct GetTyp;
+
+    template<typename T>
+    struct GetTyp<T> {
+        GetTyp(void** data) {
+            GetCall<T>((*((T*)data[0])), 1);
+        }
+    };
+
+    template<typename T, typename... I>
+    struct GetTyp<T, I...> {
+        GetTyp(void** data)
+        {
+            GetCall<T>((*((T*)data[0])), 0);
+            GetTyp<I...> n(data + 1);
+        }
+    };
+
+    template<typename... T>
+    struct SetTyp;
+
+    template<typename T>
+    struct SetTyp<T> {
+        SetTyp(void** data, istream& fin) {
+            data[0] = new T;
+            fin >> *((T*)data[0]);
+        }
+    };
+
+    template<typename T, typename... I>
+    struct SetTyp<T, I...> {
+        SetTyp(void** data, istream& fin) {
+            data[0] = new T;
+            fin >> *((T*)data[0]);
+            SetTyp<I...>(data + 1, fin);
+        }
+    };
+}
+```
 </code></pre>
 
 </details>
