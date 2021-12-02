@@ -1,5 +1,3 @@
-<abbr title = "Haa Hvb"> HH </abbr>
-<abbr title="People's Republic of China">PRC</abbr> was founded in 1949.
 
 # CppSQL.github.io
 CppSQL,use Cpp call SQL
