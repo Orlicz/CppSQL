@@ -18,6 +18,18 @@ CppSQL,use Cpp call SQL
 - In this database,type of object1 is char,type of object2 is int.
 - Type "base::addtab" to add a table.
 
+<details>
+
+<summary>    # That is the namespace Typ:</summary>
+
+<pre><code>
+
+System.out.println("Hello to see U!");
+
+</code></pre>
+
+</details>
+
 # That is the namespace Typ:
 ```cpp
 template<typename X, typename Y>
