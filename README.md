@@ -20,8 +20,8 @@ CppSQL,use Cpp call SQL
 
 <details>
 <summary>
-    # That is the namespace Typ:
-    </summary>
+# That is the namespace Typ:
+</summary>
 <pre><code>
 
 ```cpp
