@@ -19,7 +19,9 @@ CppSQL,use Cpp call SQL
 - Type "base::addtab" to add a table.
 
 <details>
-<summary># That is the namespace Typ:</summary>
+<summary>
+    # That is the namespace Typ:
+    </summary>
 <pre><code>
 
 ```cpp
