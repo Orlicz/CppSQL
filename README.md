@@ -20,12 +20,13 @@ CppSQL,use Cpp call SQL
 
 <details>
 
-<summary>    # That is the namespace Typ:</summary>
+<summary>
+    # That is the namespace Typ:
+</summary>
 
 <pre><code>
 
-System.out.println("Hello to see U!");
-
+# That is the namespace Typ:
 </code></pre>
 
 </details>
