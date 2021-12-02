@@ -21,12 +21,16 @@ CppSQL,use Cpp call SQL
 <details>
 
 <summary>
-    # That is the namespace Typ:
+    
+# That is the namespace Typ:
+    
 </summary>
+    
 
 <pre><code>
 
 # That is the namespace Typ:
+
 </code></pre>
 
 </details>
