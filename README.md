@@ -24,7 +24,7 @@ CppSQL,use Cpp call SQL
 # That is the namespace Typ:
 </summary>
 <pre><code>
-```cpp
+
 template<typename X, typename Y>
 void h(void** data, X g, Y t) {
     data[0] = new X(g);
@@ -119,7 +119,8 @@ namespace Typ {
         }
     };
 }
-```
+
+
 </code></pre>
 
 </details>
