@@ -1,5 +1,3 @@
-
-
 # CppSQL.github.io
 CppSQL,use Cpp call SQL
 
@@ -109,9 +107,7 @@ namespace Typ {
     };
 }
 ```
-
 </code></pre>
-
 </details>
 
 # That is the namespace Typ:
