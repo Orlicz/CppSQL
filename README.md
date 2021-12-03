@@ -9,7 +9,6 @@ CppSQL,use Cpp call SQL
 
 # That is the namespace Typ:
 <details>
-    ss
 <summary>
 Open
 </summary>
