@@ -1,14 +1,3 @@
-<details>
-
-<summary>展开查看</summary>
-
-<pre><code>
-
-System.out.println("Hello to see U!");
-
-</code></pre>
-
-</details>
 
 
 # CppSQL.github.io
@@ -18,9 +7,10 @@ CppSQL,use Cpp call SQL
 - In this database,type of object1 is char,type of object2 is int.
 - Type "base::addtab" to add a table.
 
+# That is the namespace Typ:
 <details>
 <summary>
-# That is the namespace Typ:
+Open
 </summary>
 <pre><code>
 
