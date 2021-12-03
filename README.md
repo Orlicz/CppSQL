@@ -13,7 +13,6 @@ CppSQL,use Cpp call SQL
 Open
 </summary>
 <pre><code>
-
 ```cpp
 template<typename X, typename Y>
 void h(void** data, X g, Y t) {
