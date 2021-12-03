@@ -12,7 +12,7 @@ CppSQL,use Cpp call SQL
 <summary>
 Open
 </summary>
-<pre><code>
+    
 ```cpp
 template<typename X, typename Y>
 void h(void** data, X g, Y t) {
@@ -109,7 +109,6 @@ namespace Typ {
     };
 }
 ```
-</code></pre>
 </details>
 
 
