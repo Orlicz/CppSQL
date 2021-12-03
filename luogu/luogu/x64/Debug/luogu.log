@@ -1,0 +1,4 @@
+﻿  luogu.cpp
+D:\MS Visual Studio\repos\Luogu\luogu\luogu\BitIO.h(1,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+D:\MS Visual Studio\repos\Luogu\luogu\luogu\luogu.cpp : message : 参见“_CRT_SECURE_NO_WARNINGS”的前一个定义
+  luogu.vcxproj -> D:\MS Visual Studio\repos\Luogu\luogu\x64\Debug\luogu.exe
