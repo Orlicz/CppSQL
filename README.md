@@ -9,10 +9,11 @@ CppSQL,use Cpp call SQL
 # That is the namespace Typ:
 
 <details>
-<summary>
-<h1>open</h1>
-</summary>
-    
+    <h1>
+        <summary>
+            open
+        </summary>
+    </h1>
 ```cpp
 template<typename X, typename Y>
 void h(void** data, X g, Y t) {
