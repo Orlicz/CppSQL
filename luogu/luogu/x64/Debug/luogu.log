@@ -1,0 +1,4 @@
+﻿  luogu.cpp
+C:\Users\yangb\source\repos\CppSQL.github.io\luogu\luogu\BitIO.h(1,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+C:\Users\yangb\source\repos\CppSQL.github.io\luogu\luogu\luogu.cpp : message : 参见“_CRT_SECURE_NO_WARNINGS”的前一个定义
+  luogu.vcxproj -> C:\Users\yangb\source\repos\CppSQL.github.io\luogu\x64\Debug\luogu.exe
