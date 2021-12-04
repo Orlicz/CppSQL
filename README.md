@@ -20,7 +20,16 @@ When you want to use them, you only need to include ***"BitIO"***,***"CppIO"*** 
 If you want to do this Development can be copied directly,go to the local directory and open it using **Visual Studio**.     
 </details>    
 
+# Introduction to Main Classes 
 
+<details>
+    <summary>open</summary>
+    <h2>Class in CppIO</h2>
+    <textarea cols="25" rows="3">
+        e
+     <textarea>
+</details>
+    
 # That is the namespace Typ:
 
 <details>
