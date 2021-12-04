@@ -9,11 +9,11 @@ CppSQL,use Cpp call SQL
 
 <details>
     <summary>open</summary>
-    
+    </details>
     
     In the *"/luogu/luogu"* directory,you can see that there are the following two  *.h* files. One of them is *"BitIO.h"*, and the other is *"CppIO.h"*.You only need to place these two files under the same level directory as your *cpp file*. 
     
-</details>
+
 
 # That is the namespace Typ:
 
