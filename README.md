@@ -25,9 +25,8 @@ If you want to do this Development can be copied directly,go to the local direct
 <details>
     <summary>open</summary>
     <h2>Class in CppIO</h2>
-    <textarea cols="25" rows="3">
-        e
-     <textarea>
+- ### table
+    
 </details>
     
 # That is the namespace Typ:
