@@ -1,10 +1,3 @@
-- [x] 任务列表1
-
-- [ ] 任务列表2
-
-- [g] 任务列表3
-
-
 # CppSQL.github.io
 CppSQL,use Cpp call SQL
 
