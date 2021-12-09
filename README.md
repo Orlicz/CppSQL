@@ -7,9 +7,6 @@ CppSQL,use Cpp call SQL
 
 # The following is a little description of the file directory. 
 
-<details>
-    <summary>open</summary>
-
 In the ***"/luogu/luogu"*** directory,
 you can see that there are the following two  ***.h*** files. 
 One of them is ***"BitIO.h"***, and the other is ***"CppIO.h"***.
@@ -18,17 +15,15 @@ You only need to place these two files under the same level directory as your **
 When you want to use them, you only need to include ***"BitIO"***,***"CppIO"*** These two files will do. 
     
 If you want to do this Development can be copied directly,go to the local directory and open it using **Visual Studio**.     
-</details>    
 
 # Introduction to Main Classes 
 
-<details>
-    <summary>open</summary>
     <h2>Class in CppIO</h2>
     
 - ### table
-    
-</details>
+    This is the basic unit in which data is saved.
+    Where the ***data(void\*\*)*** attribute Saved all the information in this column. 
+    cin is his friend. 
     
 # That is the namespace Typ:
 
