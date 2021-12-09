@@ -21,13 +21,14 @@ If you want to do this Development can be copied directly,go to the local direct
 - ### table
     This is the basic unit in which data is saved.
     Where the ***data(void\*\*)*** attribute Saved all the information in this column. 
-    cin is his friend. 
-    
-# That is the namespace Typ:
-
-<details>
-    <summary>open</summary>
-    
+    ***cin/cout*** is its friend. 
+    The method for packaging the same 
+    ***(istream&)(istream& >> table&)***
+    will be read in two order from the console ***data***.
+    When calling the methods they encapsulate 
+    ***(ostream&)(ostream& << table&)***,
+    the data will be output to a console. 
+# namespace Typ:
 ```cpp
 template<typename X, typename Y>
 void h(void** data, X g, Y t) {
@@ -124,7 +125,6 @@ namespace Typ {
     };
 }
 ```
-</details>
 
 
 # The following is a description of the functions of each function api interface. 
