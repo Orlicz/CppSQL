@@ -31,8 +31,7 @@ If you want to do this Development can be copied directly,go to the local direct
     
 <details>
 <summary>
-    
-Functions
+**Functions**
     
 </summary>
     
