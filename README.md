@@ -44,6 +44,7 @@ void addtab(table<T...> tab) {
     }
 ```
 </details>
+    
 - ## GetTab
     This function can match all tables that satisfy the condition. 
     
@@ -80,7 +81,8 @@ void addtab(table<T...> tab) {
         return ret;
     }
 ```
-        </details>
+    
+</details>
 </details>
     
 # namespace Typ:
