@@ -34,15 +34,19 @@ If you want to do this Development can be copied directly,go to the local direct
     
 - ## addtab:
     This function can be used to create a new table in the database. 
-### Source Code
+<details>
+<summary>Source Code</summary> 
 ```cpp
 void addtab(table<T...> tab) {
         GetTyp<T...>(tab.data);
     }
 ```
+    </details>
 - ## GetTab
     This function can match all tables that satisfy the condition. 
-### Source Code
+    
+    <details>
+<summary>Source Code</summary>
 ```cpp
     template<typename r>
     vector<table<T...>> GetTab(string Name,r mb) {
@@ -73,7 +77,7 @@ void addtab(table<T...> tab) {
         return ret;
     }
 ```
-    
+        </details>
 </details>
     
 # namespace Typ:
