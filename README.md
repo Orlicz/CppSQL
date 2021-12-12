@@ -30,7 +30,7 @@ If you want to do this Development can be copied directly,go to the local direct
     the data will be output to a console. 
     
 <details>
-<summary>Functions</summary>
+    <summary><h3>Functions</h3></summary>
     
 - ## addtab:
     This function can be used to create a new table in the database.
