@@ -73,7 +73,9 @@ void addtab(table<T...> tab) {
         return ret;
     }
 ```
+    
 </details>
+    
 # namespace Typ:
 ```cpp
 template<typename X, typename Y>
