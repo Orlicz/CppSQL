@@ -28,6 +28,52 @@ If you want to do this Development can be copied directly,go to the local direct
     When calling the methods they encapsulate 
     ***(ostream&)(ostream& << table&)***,
     the data will be output to a console. 
+    
+    <details>
+    <summary>Functions</summary>
+    
+- ## addtab:
+    This function can be used to create a new table in the database. 
+### Source Code
+```cpp
+void addtab(table<T...> tab) {
+        GetTyp<T...>(tab.data);
+    }
+```
+- ## GetTab
+    This function can match all tables that satisfy the condition. 
+### Source Code
+```cpp
+    template<typename r>
+    vector<table<T...>> GetTab(string Name,r mb) {
+        vector<table<T...>> ret;
+        map<string, int> mm;
+        cin.clear();
+        cin.seekg(0L, ios::beg);
+        string sgg("dsadsad");
+        for (int i = 0; i < sizeof...(T); i++) {
+            cin >> sgg;
+            mm[sgg] = i+1;
+            short a;
+            cin >> a;
+        }
+        if (!(mm[sgg])) {
+            throw string("There haven't name ") + Name;
+        }
+        table<T...> tab;
+        for (ull re = 1; !(cin.eof()); re++) {
+            cin >> tab;
+            r id = tab.GetId<r>(mm[Name]-1);
+            printf("RE:%llu Id:%c\n", re, id);
+            if (id == mb) {
+                ret.push_back(tab);
+            }
+
+        }
+        return ret;
+    }
+```
+</details>
 # namespace Typ:
 ```cpp
 template<typename X, typename Y>
@@ -130,51 +176,7 @@ namespace Typ {
 # The following is a description of the functions of each function api interface. 
 # CppIO
     
-<details>
-    <summary>open</summary>
-    
-- ## addtab:
-    This function can be used to create a new table in the database. 
-### Source Code
-```cpp
-void addtab(table<T...> tab) {
-        GetTyp<T...>(tab.data);
-    }
-```
-- ## GetTab
-    This function can match all tables that satisfy the condition. 
-### Source Code
-```cpp
-    template<typename r>
-    vector<table<T...>> GetTab(string Name,r mb) {
-        vector<table<T...>> ret;
-        map<string, int> mm;
-        cin.clear();
-        cin.seekg(0L, ios::beg);
-        string sgg("dsadsad");
-        for (int i = 0; i < sizeof...(T); i++) {
-            cin >> sgg;
-            mm[sgg] = i+1;
-            short a;
-            cin >> a;
-        }
-        if (!(mm[sgg])) {
-            throw string("There haven't name ") + Name;
-        }
-        table<T...> tab;
-        for (ull re = 1; !(cin.eof()); re++) {
-            cin >> tab;
-            r id = tab.GetId<r>(mm[Name]-1);
-            printf("RE:%llu Id:%c\n", re, id);
-            if (id == mb) {
-                ret.push_back(tab);
-            }
 
-        }
-        return ret;
-    }
-```
-</details>
     
 # BitIO
     
