@@ -29,8 +29,8 @@ If you want to do this Development can be copied directly,go to the local direct
     ***(ostream&)(ostream& << table&)***,
     the data will be output to a console. 
     
-    <details>
-    <summary>Functions</summary>
+<details>
+<summary>Functions</summary>
     
 - ## addtab:
     This function can be used to create a new table in the database. 
