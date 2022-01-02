@@ -1,4 +1,4 @@
-# CppSQL.github.io
+# CppSQL
 CppSQL,use Cpp call SQL
 
 - Now,you can use "base<char,int>" to create a database.
